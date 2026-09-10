@@ -1,0 +1,127 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warung Atika — Admin</title>
+
+    <!-- ===== FONTS ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+
+    <!-- ===== CSS — BASE ===== -->
+    <link rel="stylesheet" href="css/base/reset.css" />
+    <link rel="stylesheet" href="css/base/design-system.css" />
+    <link rel="stylesheet" href="css/base/typography.css" />
+    <link rel="stylesheet" href="css/base/animations.css" />
+
+    <!-- ===== CSS — COMPONENTS ===== -->
+    <link rel="stylesheet" href="css/components/components.css" />
+    <link rel="stylesheet" href="css/components/qr-reader.css" />
+
+    <!-- ===== CSS — LAYOUTS ===== -->
+    <link rel="stylesheet" href="css/layouts/app-shell.css" />
+    <link rel="stylesheet" href="css/layouts/admin-dashboard.css" />
+
+    <!-- ===== CSS — UTILITIES & THEMES ===== -->
+    <link rel="stylesheet" href="css/utilities/utilities.css" />
+    <link rel="stylesheet" href="css/themes/themes.css" />
+    <link rel="stylesheet" href="css/themes/print.css" />
+    <link rel="stylesheet" href="css/vendor/fonts.css" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <style>
+        #app-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1.1rem;
+            color: #5a524a;
+            background: #f4f2ef;
+            flex-direction: column;
+            gap: 16px;
+        }
+        #app-loading .spinner {
+            width: 36px;
+            height: 36px;
+            border: 3px solid #e5e0d8;
+            border-top-color: #2d4a3e;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        #app-loading p {
+            margin: 0;
+            font-weight: 500;
+            color: #8a8278;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="app-loading">
+        <div class="spinner"></div>
+        <p>📊 Memuat Admin...</p>
+    </div>
+
+    <!-- ===== APP SHELL ===== -->
+    <div id="app" data-theme="light" data-mode="genz" style="display:none;">
+
+        <!-- ===== TOPBAR ===== -->
+        <header class="app-topbar" role="banner">
+            <div class="brand">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                    <rect x="2" y="10" width="28" height="20" rx="3" fill="currentColor" opacity="0.15" />
+                    <rect x="6" y="6" width="20" height="8" rx="1" fill="currentColor" opacity="0.3" />
+                    <rect x="8" y="8" width="16" height="4" rx="1" fill="currentColor" opacity="0.5" />
+                    <circle cx="14" cy="18" r="4" fill="currentColor" opacity="0.2" />
+                    <circle cx="18" cy="18" r="4" fill="currentColor" opacity="0.2" />
+                    <circle cx="14" cy="18" r="2" fill="currentColor" opacity="0.5" />
+                    <circle cx="18" cy="18" r="2" fill="currentColor" opacity="0.5" />
+                    <text x="16" y="26" text-anchor="middle" font-size="6" font-weight="700" fill="currentColor" opacity="0.7">POS</text>
+                </svg>
+                <span>Warung Atika</span>
+                <span style="font-weight:400;opacity:0.5;font-size:var(--fs-sm);margin-left:6px;">| Admin</span>
+            </div>
+
+            <div class="topbar-actions">
+                <button class="mode-toggle" id="modeToggle" aria-label="Ganti mode">
+                    <span id="modeIcon">⚡</span>
+                    <span id="modeLabel">Gen Z</span>
+                </button>
+                <button class="mode-toggle" id="themeToggle" aria-label="Ganti tema">
+                    <span id="themeIcon">☀️</span>
+                </button>
+                <button class="btn-ghost" id="navKasir" aria-label="Kasir">🏪</button>
+                <button class="btn-ghost" id="navAdmin" aria-label="Admin" style="background:var(--color-primary);color:var(--color-primary-text);">📊</button>
+                <button class="btn-ghost" id="logoutBtn" aria-label="Logout">🚪</button>
+            </div>
+        </header>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="app-main" role="main">
+            <div class="admin-container" id="adminContainer">
+                <!-- Konten admin akan di-render oleh JS di sini -->
+                <div style="padding:var(--space-xl);text-align:center;color:var(--text-muted);">
+                    <p style="font-size:var(--fs-lg);">📊 Admin Dashboard</p>
+                    <p style="font-size:var(--fs-sm);">Memuat data...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================================================================
+    JAVASCRIPT — BOOTSTRAP
+    ================================================================ -->
+    <script type="module" src="js/bootstrap.js"></script>
+
+</body>
+</html>

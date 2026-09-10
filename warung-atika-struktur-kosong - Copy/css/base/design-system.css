@@ -1,0 +1,598 @@
+ /* ================================================================
+   DESIGN SYSTEM — Warung Atika Enterprise
+   ================================================================
+   Total: 500+ baris
+   Mencakup: warna, font, spacing, shadow, radius, transition,
+   z-index, breakpoints, container, tema light/dark/lansia/genz
+   ================================================================ */
+
+/* ================================================================
+   PART 1: ROOT TOKENS (Immutable)
+   ================================================================ */
+
+:root {
+    /* ---- 1.1 FONT ---- */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+
+    /* ---- 1.2 RADIUS ---- */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
+    --radius-full: 9999px;
+
+    /* ---- 1.3 SHADOW (Elevation) ---- */
+    --shadow-xs: 0 1px 2px rgba(28, 26, 24, 0.04);
+    --shadow-sm: 0 1px 3px rgba(28, 26, 24, 0.06);
+    --shadow-md: 0 4px 12px rgba(28, 26, 24, 0.08);
+    --shadow-lg: 0 8px 30px rgba(28, 26, 24, 0.10);
+    --shadow-xl: 0 20px 60px rgba(28, 26, 24, 0.14);
+
+    /* ---- 1.4 TRANSITION ---- */
+    --transition-micro: 100ms ease;
+    --transition-fast: 200ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 450ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: 550ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ---- 1.5 Z-INDEX ---- */
+    --z-0: 0;
+    --z-10: 10;
+    --z-20: 20;
+    --z-30: 30;
+    --z-40: 40;
+    --z-50: 50;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-modal: 1000;
+    --z-toast: 2000;
+    --z-tooltip: 3000;
+    --z-max: 9999;
+
+    /* ---- 1.6 TOUCH TARGET ---- */
+    --touch-target-min: 44px;
+    --touch-target-lansia: 65px;
+
+    /* ---- 1.7 CONTAINER ---- */
+    --container-sm: 480px;
+    --container-md: 640px;
+    --container-lg: 820px;
+    --container-xl: 1024px;
+    --container-2xl: 1280px;
+    --container-full: 100%;
+
+    /* ---- 1.8 GRID ---- */
+    --grid-gap: var(--space-4);
+    --grid-cols: 12;
+
+    /* ---- 1.9 FOCUS RING ---- */
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+    --focus-ring-color: var(--color-primary);
+}
+
+/* ================================================================
+   PART 2: LIGHT THEME
+   ================================================================ */
+
+:root,
+[data-theme="light"] {
+    /* ---- 2.1 BACKGROUND ---- */
+    --bg-primary: #f4f2ef;
+    --bg-secondary: #ece8e1;
+    --bg-tertiary: #e5e0d8;
+    --bg-surface: #ffffff;
+    --bg-surface-hover: #faf8f5;
+    --bg-elevated: #ffffff;
+    --bg-elevated-hover: #f8f6f3;
+
+    /* ---- 2.2 TEXT ---- */
+    --text-primary: #1c1a18;
+    --text-secondary: #5a524a;
+    --text-tertiary: #8a8278;
+    --text-muted: #a09888;
+    --text-inverse: #ffffff;
+
+    /* ---- 2.3 BORDER ---- */
+    --border-primary: #e5e0d8;
+    --border-secondary: #ece8e1;
+    --border-tertiary: #d5cec4;
+    --border-active: #2d4a3e;
+
+    /* ---- 2.4 PRIMARY ---- */
+    --color-primary: #2d4a3e;
+    --color-primary-hover: #1f332a;
+    --color-primary-active: #16261f;
+    --color-primary-focus: rgba(45, 74, 62, 0.3);
+    --color-primary-bg: #eaf1ed;
+    --color-primary-bg-hover: #d5e3db;
+    --color-primary-text: #ffffff;
+    --color-primary-ring: #2d4a3e;
+
+    /* ---- 2.5 SUCCESS ---- */
+    --color-success: #27ae60;
+    --color-success-hover: #1e8449;
+    --color-success-active: #145a32;
+    --color-success-focus: rgba(39, 174, 96, 0.3);
+    --color-success-bg: #eafaf1;
+    --color-success-bg-hover: #d5f0e0;
+    --color-success-text: #1a6a3a;
+    --color-success-ring: #27ae60;
+
+    /* ---- 2.6 WARNING ---- */
+    --color-warning: #f39c12;
+    --color-warning-hover: #d68910;
+    --color-warning-active: #b9770e;
+    --color-warning-focus: rgba(243, 156, 18, 0.3);
+    --color-warning-bg: #fef9e7;
+    --color-warning-bg-hover: #fdf0d5;
+    --color-warning-text: #8a6d0b;
+    --color-warning-ring: #f39c12;
+
+    /* ---- 2.7 ERROR ---- */
+    --color-error: #c0392b;
+    --color-error-hover: #a93226;
+    --color-error-active: #8a2a1e;
+    --color-error-focus: rgba(192, 57, 43, 0.3);
+    --color-error-bg: #fdedec;
+    --color-error-bg-hover: #fadbd8;
+    --color-error-text: #7a2218;
+    --color-error-ring: #c0392b;
+
+    /* ---- 2.8 INFO ---- */
+    --color-info: #2d7a9e;
+    --color-info-hover: #236888;
+    --color-info-active: #1a5572;
+    --color-info-focus: rgba(45, 122, 158, 0.3);
+    --color-info-bg: #e8f4f8;
+    --color-info-bg-hover: #d0e8f0;
+    --color-info-text: #1a4a62;
+    --color-info-ring: #2d7a9e;
+
+    /* ---- 2.9 SHADOW ---- */
+    --shadow-color: rgba(28, 26, 24, 0.06);
+    --shadow-color-dark: rgba(28, 26, 24, 0.10);
+
+    /* ---- 2.10 SCROLLBAR ---- */
+    --scrollbar-track: #f0ede8;
+    --scrollbar-thumb: #d5cec4;
+    --scrollbar-thumb-hover: #b8aea2;
+
+    /* ---- 2.11 SELECTION ---- */
+    --selection-bg: #2d4a3e;
+    --selection-text: #ffffff;
+
+    /* ---- 2.12 OVERLAY ---- */
+    --overlay-light: rgba(255, 255, 255, 0.7);
+    --overlay-dark: rgba(28, 26, 24, 0.5);
+}
+
+/* ================================================================
+   PART 3: DARK THEME
+   ================================================================ */
+
+[data-theme="dark"] {
+    /* ---- 3.1 BACKGROUND ---- */
+    --bg-primary: #12100e;
+    --bg-secondary: #1e1c18;
+    --bg-tertiary: #2a2622;
+    --bg-surface: #1e1c18;
+    --bg-surface-hover: #2a2622;
+    --bg-elevated: #2a2622;
+    --bg-elevated-hover: #36302a;
+
+    /* ---- 3.2 TEXT ---- */
+    --text-primary: #ece8e2;
+    --text-secondary: #b0a898;
+    --text-tertiary: #8a8278;
+    --text-muted: #706860;
+    --text-inverse: #12100e;
+
+    /* ---- 3.3 BORDER ---- */
+    --border-primary: #2a2622;
+    --border-secondary: #1e1c18;
+    --border-tertiary: #3a3430;
+    --border-active: #5a8a72;
+
+    /* ---- 3.4 PRIMARY ---- */
+    --color-primary: #5a8a72;
+    --color-primary-hover: #6a9a82;
+    --color-primary-active: #4a7a62;
+    --color-primary-focus: rgba(90, 138, 114, 0.3);
+    --color-primary-bg: #1a2a22;
+    --color-primary-bg-hover: #2a3a32;
+    --color-primary-text: #12100e;
+    --color-primary-ring: #5a8a72;
+
+    /* ---- 3.5 SUCCESS ---- */
+    --color-success: #4ade80;
+    --color-success-hover: #5eea90;
+    --color-success-active: #3ac870;
+    --color-success-focus: rgba(74, 222, 128, 0.3);
+    --color-success-bg: #1a3a2a;
+    --color-success-bg-hover: #2a4a3a;
+    --color-success-text: #86efac;
+    --color-success-ring: #4ade80;
+
+    /* ---- 3.6 WARNING ---- */
+    --color-warning: #facc15;
+    --color-warning-hover: #fadd35;
+    --color-warning-active: #f0b800;
+    --color-warning-focus: rgba(250, 204, 21, 0.3);
+    --color-warning-bg: #3a2e1a;
+    --color-warning-bg-hover: #4a3e2a;
+    --color-warning-text: #fde047;
+    --color-warning-ring: #facc15;
+
+    /* ---- 3.7 ERROR ---- */
+    --color-error: #f87171;
+    --color-error-hover: #fa8a8a;
+    --color-error-active: #f06161;
+    --color-error-focus: rgba(248, 113, 113, 0.3);
+    --color-error-bg: #3a1a22;
+    --color-error-bg-hover: #4a2a32;
+    --color-error-text: #fca5a5;
+    --color-error-ring: #f87171;
+
+    /* ---- 3.8 INFO ---- */
+    --color-info: #60a5ba;
+    --color-info-hover: #78b8cc;
+    --color-info-active: #4a92a8;
+    --color-info-focus: rgba(96, 165, 186, 0.3);
+    --color-info-bg: #1a2a3a;
+    --color-info-bg-hover: #2a3a4a;
+    --color-info-text: #93cadd;
+    --color-info-ring: #60a5ba;
+
+    /* ---- 3.9 SHADOW ---- */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow-color-dark: rgba(0, 0, 0, 0.7);
+
+    /* ---- 3.10 SCROLLBAR ---- */
+    --scrollbar-track: #1e1c18;
+    --scrollbar-thumb: #3a3430;
+    --scrollbar-thumb-hover: #5a524a;
+
+    /* ---- 3.11 SELECTION ---- */
+    --selection-bg: #5a8a72;
+    --selection-text: #12100e;
+
+    /* ---- 3.12 OVERLAY ---- */
+    --overlay-light: rgba(18, 16, 14, 0.7);
+    --overlay-dark: rgba(0, 0, 0, 0.8);
+}
+
+/* ================================================================
+   PART 4: MODE LANSIA (WCAG AAA)
+   ================================================================ */
+
+[data-mode="lansia"] {
+    /* ---- 4.1 FONT SIZE (50% lebih besar) ---- */
+    --font-size-xs: clamp(0.95rem, 1.5vw, 1.15rem);
+    --font-size-sm: clamp(1.1rem, 2vw, 1.35rem);
+    --font-size-base: clamp(1.3rem, 2.5vw, 1.6rem);
+    --font-size-lg: clamp(1.55rem, 3vw, 1.9rem);
+    --font-size-xl: clamp(1.85rem, 3.5vw, 2.4rem);
+    --font-size-2xl: clamp(2.3rem, 4.5vw, 3.2rem);
+    --font-size-3xl: clamp(3.1rem, 6vw, 4.2rem);
+    --font-size-4xl: clamp(3.6rem, 7vw, 5.2rem);
+
+    /* ---- 4.2 SPACING (Lebih longgar) ---- */
+    --space-1: clamp(8px, 1vw, 12px);
+    --space-2: clamp(12px, 1.5vw, 16px);
+    --space-3: clamp(16px, 2vw, 22px);
+    --space-4: clamp(22px, 3vw, 30px);
+    --space-5: clamp(28px, 4vw, 38px);
+    --space-6: clamp(34px, 5vw, 46px);
+    --space-8: clamp(46px, 7vw, 62px);
+    --space-10: clamp(58px, 8vw, 78px);
+    --space-12: clamp(74px, 10vw, 94px);
+    --space-16: clamp(90px, 12vw, 120px);
+    --space-20: clamp(110px, 14vw, 150px);
+
+    /* ---- 4.3 TOUCH TARGET (≥ 65px) ---- */
+    --touch-target-min: clamp(65px, 8vw, 90px);
+
+    /* ---- 4.4 FONT WEIGHT (Lebih tebal) ---- */
+    --font-weight-regular: 500;
+    --font-weight-medium: 600;
+    --font-weight-semibold: 700;
+    --font-weight-bold: 800;
+
+    /* ---- 4.5 LINE HEIGHT (Lebih tinggi) ---- */
+    --line-height-normal: 1.7;
+    --line-height-relaxed: 1.9;
+
+    /* ---- 4.6 SHADOW (Lebih soft) ---- */
+    --shadow-xs: 0 2px 4px var(--shadow-color);
+    --shadow-sm: 0 4px 12px var(--shadow-color);
+    --shadow-md: 0 8px 24px var(--shadow-color);
+    --shadow-lg: 0 12px 48px var(--shadow-color);
+    --shadow-xl: 0 24px 80px var(--shadow-color);
+
+    /* ---- 4.7 BORDER (Lebih tebal) ---- */
+    --border-width-thin: 2px;
+    --border-width-normal: 3px;
+    --border-width-thick: 4px;
+
+    /* ---- 4.8 FOCUS RING (Lebih besar) ---- */
+    --focus-ring-width: 3px;
+    --focus-ring-offset: 3px;
+}
+
+/* ================================================================
+   PART 5: MODE GEN Z (Density-First)
+   ================================================================ */
+
+[data-mode="genz"] {
+    /* ---- 5.1 FONT SIZE (Compact) ---- */
+    --font-size-xs: clamp(0.65rem, 0.8vw, 0.75rem);
+    --font-size-sm: clamp(0.75rem, 1vw, 0.875rem);
+    --font-size-base: clamp(0.875rem, 1.2vw, 1rem);
+    --font-size-lg: clamp(1rem, 1.5vw, 1.125rem);
+    --font-size-xl: clamp(1.125rem, 1.8vw, 1.25rem);
+    --font-size-2xl: clamp(1.25rem, 2.2vw, 1.5rem);
+    --font-size-3xl: clamp(1.5rem, 3vw, 2rem);
+    --font-size-4xl: clamp(1.75rem, 3.5vw, 2.5rem);
+
+    /* ---- 5.2 SPACING (Compact) ---- */
+    --space-1: 4px;
+    --space-2: 6px;
+    --space-3: 10px;
+    --space-4: 14px;
+    --space-5: 18px;
+    --space-6: 22px;
+    --space-8: 30px;
+    --space-10: 38px;
+    --space-12: 46px;
+    --space-16: 60px;
+    --space-20: 80px;
+
+    /* ---- 5.3 TOUCH TARGET (Minimal) ---- */
+    --touch-target-min: clamp(40px, 4vw, 48px);
+
+    /* ---- 5.4 FONT WEIGHT (Normal) ---- */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* ---- 5.5 LINE HEIGHT (Normal) ---- */
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.6;
+
+    /* ---- 5.6 SHADOW (Crisp) ---- */
+    --shadow-xs: 0 1px 2px var(--shadow-color);
+    --shadow-sm: 0 1px 3px var(--shadow-color);
+    --shadow-md: 0 4px 12px var(--shadow-color);
+    --shadow-lg: 0 8px 30px var(--shadow-color);
+    --shadow-xl: 0 20px 60px var(--shadow-color);
+
+    /* ---- 5.7 BORDER (Normal) ---- */
+    --border-width-thin: 1px;
+    --border-width-normal: 2px;
+    --border-width-thick: 3px;
+
+    /* ---- 5.8 FOCUS RING (Normal) ---- */
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+}
+
+/* ================================================================
+   PART 6: KOMBINASI KHUSUS
+   ================================================================ */
+
+[data-theme="light"][data-mode="lansia"] {
+    --text-primary: #0e0c0a;
+    --text-secondary: #3a322a;
+    --border-primary: #c8c0b8;
+    --border-tertiary: #b8aea2;
+    --shadow-color: rgba(0, 0, 0, 0.10);
+    --shadow-color-dark: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"][data-mode="lansia"] {
+    --text-primary: #f0ece6;
+    --text-secondary: #c8c0b8;
+    --border-primary: #4a443e;
+    --border-tertiary: #5a524a;
+    --shadow-color: rgba(0, 0, 0, 0.6);
+    --shadow-color-dark: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"][data-mode="genz"] {
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow-color-dark: rgba(0, 0, 0, 0.7);
+}
+
+/* ================================================================
+   PART 7: SEMANTIC ALIAS
+   ================================================================ */
+
+:root {
+    /* ---- 7.1 BACKGROUND ---- */
+    --color-bg: var(--bg-primary);
+    --color-bg-secondary: var(--bg-secondary);
+    --color-bg-tertiary: var(--bg-tertiary);
+    --color-surface: var(--bg-surface);
+    --color-surface-hover: var(--bg-surface-hover);
+    --color-surface-elevated: var(--bg-elevated);
+    --color-surface-elevated-hover: var(--bg-elevated-hover);
+
+    /* ---- 7.2 TEXT ---- */
+    --color-text: var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-tertiary: var(--text-tertiary);
+    --color-text-muted: var(--text-muted);
+    --color-text-inverse: var(--text-inverse);
+
+    /* ---- 7.3 BORDER ---- */
+    --color-border: var(--border-primary);
+    --color-border-light: var(--border-secondary);
+    --color-border-dark: var(--border-tertiary);
+    --color-border-active: var(--border-active);
+
+    /* ---- 7.4 PRIMARY ---- */
+    --color-primary: var(--color-primary);
+    --color-primary-hover: var(--color-primary-hover);
+    --color-primary-active: var(--color-primary-active);
+    --color-primary-focus: var(--color-primary-focus);
+    --color-primary-bg: var(--color-primary-bg);
+    --color-primary-bg-hover: var(--color-primary-bg-hover);
+    --color-primary-text: var(--color-primary-text);
+    --color-primary-ring: var(--color-primary-ring);
+
+    /* ---- 7.5 SUCCESS ---- */
+    --color-success: var(--color-success);
+    --color-success-hover: var(--color-success-hover);
+    --color-success-active: var(--color-success-active);
+    --color-success-focus: var(--color-success-focus);
+    --color-success-bg: var(--color-success-bg);
+    --color-success-bg-hover: var(--color-success-bg-hover);
+    --color-success-text: var(--color-success-text);
+    --color-success-ring: var(--color-success-ring);
+
+    /* ---- 7.6 WARNING ---- */
+    --color-warning: var(--color-warning);
+    --color-warning-hover: var(--color-warning-hover);
+    --color-warning-active: var(--color-warning-active);
+    --color-warning-focus: var(--color-warning-focus);
+    --color-warning-bg: var(--color-warning-bg);
+    --color-warning-bg-hover: var(--color-warning-bg-hover);
+    --color-warning-text: var(--color-warning-text);
+    --color-warning-ring: var(--color-warning-ring);
+
+    /* ---- 7.7 ERROR ---- */
+    --color-error: var(--color-error);
+    --color-error-hover: var(--color-error-hover);
+    --color-error-active: var(--color-error-active);
+    --color-error-focus: var(--color-error-focus);
+    --color-error-bg: var(--color-error-bg);
+    --color-error-bg-hover: var(--color-error-bg-hover);
+    --color-error-text: var(--color-error-text);
+    --color-error-ring: var(--color-error-ring);
+
+    /* ---- 7.8 INFO ---- */
+    --color-info: var(--color-info);
+    --color-info-hover: var(--color-info-hover);
+    --color-info-active: var(--color-info-active);
+    --color-info-focus: var(--color-info-focus);
+    --color-info-bg: var(--color-info-bg);
+    --color-info-bg-hover: var(--color-info-bg-hover);
+    --color-info-text: var(--color-info-text);
+    --color-info-ring: var(--color-info-ring);
+
+    /* ---- 7.9 SHADOW ---- */
+    --shadow-color: var(--shadow-color);
+    --shadow-color-dark: var(--shadow-color-dark);
+
+    /* ---- 7.10 SCROLLBAR ---- */
+    --scrollbar-track: var(--scrollbar-track);
+    --scrollbar-thumb: var(--scrollbar-thumb);
+    --scrollbar-thumb-hover: var(--scrollbar-thumb-hover);
+
+    /* ---- 7.11 SELECTION ---- */
+    --selection-bg: var(--selection-bg);
+    --selection-text: var(--selection-text);
+
+    /* ---- 7.12 OVERLAY ---- */
+    --overlay-light: var(--overlay-light);
+    --overlay-dark: var(--overlay-dark);
+
+    /* ---- 7.13 FONT SIZE ---- */
+    --font-size-xs: var(--font-size-xs);
+    --font-size-sm: var(--font-size-sm);
+    --font-size-base: var(--font-size-base);
+    --font-size-lg: var(--font-size-lg);
+    --font-size-xl: var(--font-size-xl);
+    --font-size-2xl: var(--font-size-2xl);
+    --font-size-3xl: var(--font-size-3xl);
+    --font-size-4xl: var(--font-size-4xl);
+
+    /* ---- 7.14 FONT WEIGHT ---- */
+    --font-weight-regular: var(--font-weight-regular);
+    --font-weight-medium: var(--font-weight-medium);
+    --font-weight-semibold: var(--font-weight-semibold);
+    --font-weight-bold: var(--font-weight-bold);
+
+    /* ---- 7.15 LINE HEIGHT ---- */
+    --line-height-normal: var(--line-height-normal);
+    --line-height-relaxed: var(--line-height-relaxed);
+    --line-height-tight: 1.2;
+    --line-height-snug: 1.3;
+    --line-height-loose: 1.8;
+
+    /* ---- 7.16 LETTER SPACING ---- */
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.02em;
+    --letter-spacing-wider: 0.05em;
+
+    /* ---- 7.17 SPACING ---- */
+    --space-xs: var(--space-1);
+    --space-sm: var(--space-2);
+    --space-md: var(--space-4);
+    --space-lg: var(--space-6);
+    --space-xl: var(--space-8);
+    --space-2xl: var(--space-12);
+    --space-3xl: var(--space-16);
+
+    /* ---- 7.18 TOUCH TARGET ---- */
+    --touch-target: var(--touch-target-min);
+
+    /* ---- 7.19 BORDER WIDTH ---- */
+    --border-width-thin: var(--border-width-thin);
+    --border-width-normal: var(--border-width-normal);
+    --border-width-thick: var(--border-width-thick);
+
+    /* ---- 7.20 FOCUS RING ---- */
+    --focus-ring-width: var(--focus-ring-width);
+    --focus-ring-offset: var(--focus-ring-offset);
+    --focus-ring-color: var(--color-primary-ring);
+}
+
+/* ================================================================
+   PART 8: GLOBAL STYLES (Berbasis Variable)
+   ================================================================ */
+
+/* ---- 8.1 SCROLLBAR ---- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* ---- 8.2 SELECTION ---- */
+::selection {
+    background: var(--selection-bg);
+    color: var(--selection-text);
+}
+
+::-moz-selection {
+    background: var(--selection-bg);
+    color: var(--selection-text);
+}
+
+/* ---- 8.3 FOCUS RING ---- */
+:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+/* ================================================================
+   END OF DESIGN SYSTEM — 500+ BARIS
+   ================================================================ */

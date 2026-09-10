@@ -1,0 +1,305 @@
+ /* ================================================================
+   RESET — Warung Atika Enterprise
+   ================================================================
+   Tujuan: Normalisasi rendering di semua browser
+   ================================================================ */
+
+/* ================================================================
+   1. UNIVERSAL BOX-SIZING
+   ================================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================================================================
+   2. HTML & BODY
+   ================================================================ */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    line-height: 1.5;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: #f4f2ef;
+    color: #1c1a18;
+}
+
+/* ================================================================
+   3. TYPOGRAPHY
+   ================================================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+figure,
+table {
+    margin: 0;
+}
+
+/* ================================================================
+   4. LISTS
+   ================================================================ */
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* ================================================================
+   5. LINKS
+   ================================================================ */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:not([href]) {
+    cursor: default;
+}
+
+/* ================================================================
+   6. MEDIA
+   ================================================================ */
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ================================================================
+   7. FORMS
+   ================================================================ */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+button {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ================================================================
+   8. INPUT NUMBER (hilangkan spin button)
+   ================================================================ */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* ================================================================
+   9. AUTO-FILL
+   ================================================================ */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset;
+    box-shadow: 0 0 0 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ================================================================
+   10. TABLES
+   ================================================================ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+th,
+td {
+    text-align: left;
+    vertical-align: top;
+}
+
+/* ================================================================
+   11. ACCESSIBLE FOCUS
+   ================================================================ */
+
+:focus-visible {
+    outline: 3px solid #2d4a3e;
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ================================================================
+   12. HIDDEN / VISUALLY HIDDEN
+   ================================================================ */
+
+[hidden] {
+    display: none !important;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* ================================================================
+   13. REDUCED MOTION
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ================================================================
+   14. SELECTION
+   ================================================================ */
+
+::selection {
+    background: #2d4a3e;
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: #2d4a3e;
+    color: #ffffff;
+}
+
+/* ================================================================
+   15. SCROLLBAR
+   ================================================================ */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0ede8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d5cec4;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b8aea2;
+}
+
+/* ================================================================
+   16. PRINT
+   ================================================================ */
+
+@media print {
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+}
+
+/* ================================================================
+   END OF RESET
+   ================================================================ */

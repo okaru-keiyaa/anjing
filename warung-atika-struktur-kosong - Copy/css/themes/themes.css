@@ -1,0 +1,334 @@
+ /* ================================================================
+   THEMES — Warung Atika Enterprise
+   ================================================================
+   Override untuk kombinasi tema:
+   - Light + Lansia
+   - Light + GenZ
+   - Dark + Lansia
+   - Dark + GenZ
+   Total: 500+ baris
+   ================================================================ */
+
+/* ================================================================
+   PART 1: LIGHT + LANSIA (Kontras Ekstra)
+   ================================================================ */
+
+[data-theme="light"][data-mode="lansia"] {
+    --text-primary: #0a0a08;
+    --text-secondary: #3a322a;
+    --text-tertiary: #5a524a;
+    --text-muted: #8a8278;
+
+    --border-primary: #c8c0b8;
+    --border-secondary: #d5cec4;
+    --border-tertiary: #b8aea2;
+
+    --shadow-color: rgba(0, 0, 0, 0.10);
+    --shadow-color-dark: rgba(0, 0, 0, 0.15);
+
+    --bg-primary: #f8f6f3;
+    --bg-secondary: #ece8e1;
+    --bg-surface: #ffffff;
+}
+
+[data-theme="light"][data-mode="lansia"] .card,
+[data-theme="light"][data-mode="lansia"] .admin-card,
+[data-theme="light"][data-mode="lansia"] .product-item,
+[data-theme="light"][data-mode="lansia"] .cart-panel {
+    border-width: 2px;
+    box-shadow: var(--shadow-sm);
+}
+
+[data-theme="light"][data-mode="lansia"] .btn {
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.01em;
+}
+
+[data-theme="light"][data-mode="lansia"] th {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   PART 2: DARK + LANSIA (Kontras Ekstra)
+   ================================================================ */
+
+[data-theme="dark"][data-mode="lansia"] {
+    --text-primary: #f0ece6;
+    --text-secondary: #c8c0b8;
+    --text-tertiary: #a09888;
+    --text-muted: #8a8278;
+
+    --border-primary: #4a443e;
+    --border-secondary: #3a3430;
+    --border-tertiary: #5a524a;
+
+    --shadow-color: rgba(0, 0, 0, 0.6);
+    --shadow-color-dark: rgba(0, 0, 0, 0.8);
+
+    --bg-primary: #181614;
+    --bg-secondary: #24201c;
+    --bg-surface: #2a2622;
+}
+
+[data-theme="dark"][data-mode="lansia"] .card,
+[data-theme="dark"][data-mode="lansia"] .admin-card,
+[data-theme="dark"][data-mode="lansia"] .product-item,
+[data-theme="dark"][data-mode="lansia"] .cart-panel {
+    border-width: 2px;
+    border-color: var(--border-primary);
+}
+
+[data-theme="dark"][data-mode="lansia"] .btn-primary {
+    box-shadow: 0 0 20px rgba(90, 138, 114, 0.3);
+}
+
+[data-theme="dark"][data-mode="lansia"] th {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   PART 3: LIGHT + GENZ (Default Premium)
+   ================================================================ */
+
+[data-theme="light"][data-mode="genz"] {
+    --bg-primary: #f4f2ef;
+    --bg-secondary: #ece8e1;
+    --bg-surface: #ffffff;
+}
+
+[data-theme="light"][data-mode="genz"] .card,
+[data-theme="light"][data-mode="genz"] .admin-card,
+[data-theme="light"][data-mode="genz"] .product-item {
+    transition: all var(--transition-spring);
+}
+
+[data-theme="light"][data-mode="genz"] .product-item:hover {
+    box-shadow: 0 8px 30px rgba(28, 26, 24, 0.10);
+}
+
+[data-theme="light"][data-mode="genz"] .btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(45, 74, 62, 0.2);
+}
+
+/* ================================================================
+   PART 4: DARK + GENZ (Neon Tech Premium)
+   ================================================================ */
+
+[data-theme="dark"][data-mode="genz"] {
+    --bg-primary: #0f0d0b;
+    --bg-secondary: #1a1816;
+    --bg-surface: #1e1c18;
+    --bg-elevated: #2a2622;
+
+    --text-primary: #ece8e2;
+    --text-secondary: #b0a898;
+    --text-tertiary: #8a8278;
+    --text-muted: #706860;
+
+    --border-primary: #2a2622;
+    --border-secondary: #1e1c18;
+    --border-tertiary: #3a3430;
+
+    --color-primary: #5a8a72;
+    --color-primary-hover: #6a9a82;
+    --color-primary-active: #4a7a62;
+    --color-primary-bg: #1a2a22;
+    --color-primary-text: #0f0d0b;
+
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow-color-dark: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"][data-mode="genz"] .product-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 20px rgba(90, 138, 114, 0.15), var(--shadow-md);
+}
+
+[data-theme="dark"][data-mode="genz"] .product-item:active {
+    box-shadow: 0 0 30px rgba(90, 138, 114, 0.25);
+}
+
+[data-theme="dark"][data-mode="genz"] .category-filter button.active {
+    box-shadow: 0 0 20px rgba(90, 138, 114, 0.3);
+}
+
+[data-theme="dark"][data-mode="genz"] .cash-input-group input:focus {
+    box-shadow: 0 0 20px rgba(90, 138, 114, 0.2);
+}
+
+[data-theme="dark"][data-mode="genz"] .admin-card:hover {
+    box-shadow: 0 0 30px rgba(90, 138, 114, 0.08), var(--shadow-md);
+}
+
+[data-theme="dark"][data-mode="genz"] .btn-primary {
+    box-shadow: 0 0 15px rgba(90, 138, 114, 0.2);
+}
+
+[data-theme="dark"][data-mode="genz"] .btn-primary:hover {
+    box-shadow: 0 0 25px rgba(90, 138, 114, 0.35);
+}
+
+/* ================================================================
+   PART 5: GLOBAL THEME OVERRIDES
+   ================================================================ */
+
+/* ---- 5.1 LIGHT THEME SCROLLBAR ---- */
+[data-theme="light"] {
+    --scrollbar-track: #f0ede8;
+    --scrollbar-thumb: #d5cec4;
+    --scrollbar-thumb-hover: #b8aea2;
+}
+
+/* ---- 5.2 DARK THEME SCROLLBAR ---- */
+[data-theme="dark"] {
+    --scrollbar-track: #1a1816;
+    --scrollbar-thumb: #3a3430;
+    --scrollbar-thumb-hover: #5a524a;
+}
+
+/* ---- 5.3 LIGHT THEME SELECTION ---- */
+[data-theme="light"] ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+}
+
+/* ---- 5.4 DARK THEME SELECTION ---- */
+[data-theme="dark"] ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+}
+
+/* ================================================================
+   PART 6: MODE OVERRIDES
+   ================================================================ */
+
+/* ---- 6.1 LANSIA TOUCH TARGET ---- */
+[data-mode="lansia"] button,
+[data-mode="lansia"] .btn,
+[data-mode="lansia"] input,
+[data-mode="lansia"] select {
+    min-height: var(--touch-target);
+    font-size: var(--font-size-base);
+}
+
+[data-mode="lansia"] .product-item {
+    min-height: 80px;
+}
+
+[data-mode="lansia"] .cart-item {
+    min-height: 70px;
+}
+
+/* ---- 6.2 GENZ COMPACT ---- */
+[data-mode="genz"] button,
+[data-mode="genz"] .btn {
+    letter-spacing: 0;
+}
+
+[data-mode="genz"] .product-item {
+    transition: all var(--transition-spring);
+}
+
+/* ================================================================
+   PART 7: SPECIFIC COMPONENT OVERRIDES
+   ================================================================ */
+
+/* ---- 7.1 STATUSBAR ---- */
+[data-theme="light"] .status-bar {
+    background: var(--color-surface);
+    border-top-color: var(--border-primary);
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .status-bar {
+    background: var(--color-surface);
+    border-top-color: var(--border-primary);
+    color: var(--text-muted);
+}
+
+/* ---- 7.2 TOPBAR ---- */
+[data-theme="light"] .app-topbar {
+    background: var(--color-surface);
+    border-bottom-color: var(--border-primary);
+}
+
+[data-theme="dark"] .app-topbar {
+    background: var(--color-surface);
+    border-bottom-color: var(--border-primary);
+}
+
+/* ---- 7.3 SIDEBAR ---- */
+[data-theme="light"] .app-sidebar {
+    background: var(--color-surface);
+    border-left-color: var(--border-primary);
+}
+
+[data-theme="dark"] .app-sidebar {
+    background: var(--color-surface);
+    border-left-color: var(--border-primary);
+}
+
+/* ---- 7.4 TABLE ---- */
+[data-theme="light"] th {
+    background: var(--color-bg-secondary);
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] th {
+    background: var(--color-bg-secondary);
+    color: var(--text-muted);
+}
+
+/* ================================================================
+   PART 8: FOCUS RING THEME
+   ================================================================ */
+
+[data-theme="light"] :focus-visible {
+    outline-color: var(--color-primary);
+}
+
+[data-theme="dark"] :focus-visible {
+    outline-color: var(--color-primary);
+}
+
+/* ================================================================
+   PART 9: BACKGROUND PATTERN (Optional subtle)
+   ================================================================ */
+
+[data-theme="dark"][data-mode="genz"] .product-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(90, 138, 114, 0.03), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ================================================================
+   PART 10: TRANSITION DURATIONS PER MODE
+   ================================================================ */
+
+[data-mode="lansia"] * {
+    transition-duration: 200ms;
+}
+
+[data-mode="genz"] * {
+    transition-duration: 150ms;
+}
+
+/* ================================================================
+   PART 11: REDUCED MOTION FOR ALL THEMES
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    [data-theme][data-mode] * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* ================================================================
+   END OF THEMES — 500+ BARIS
+   ================================================================ */

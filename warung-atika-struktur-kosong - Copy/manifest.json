@@ -1,0 +1,52 @@
+ {
+  "name": "Warung Atika Enterprise",
+  "short_name": "Warung Atika",
+  "description": "Point of Sale System untuk Warung Atika",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f2ef",
+  "theme_color": "#2d4a3e",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot-1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Halaman Kasir"
+    },
+    {
+      "src": "assets/images/screenshot-2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Dashboard Admin"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Kasir",
+      "short_name": "Kasir",
+      "description": "Buka halaman kasir",
+      "url": "/index.html",
+      "icons": [{ "src": "assets/icons/cashier.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Admin",
+      "short_name": "Admin",
+      "description": "Buka dashboard admin",
+      "url": "/admin.html",
+      "icons": [{ "src": "assets/icons/admin.svg", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

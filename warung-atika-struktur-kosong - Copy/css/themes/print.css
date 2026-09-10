@@ -1,0 +1,711 @@
+ /* ================================================================
+   PRINT — Warung Atika Enterprise
+   ================================================================
+   Styling untuk print: struk, laporan, inventory
+   Total: 400+ baris
+   ================================================================ */
+
+/* ================================================================
+   PART 1: GLOBAL PRINT RESET
+   ================================================================ */
+
+@media print {
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    html {
+        font-size: 12pt;
+    }
+
+    body {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+        margin: 0;
+        padding: 0;
+        min-height: auto;
+    }
+
+    /* ---- 1.1 PAGE SETUP ---- */
+    @page {
+        margin: 1.5cm;
+        size: auto;
+    }
+
+    @page :first {
+        margin-top: 1cm;
+    }
+}
+
+/* ================================================================
+   PART 2: HIDE UI ELEMENTS
+   ================================================================ */
+
+@media print {
+    /* ---- 2.1 HIDE SHELL ---- */
+    .app-topbar,
+    .app-sidebar,
+    .status-bar,
+    .no-print,
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-ghost,
+    .btn-success,
+    .btn-danger,
+    .btn-warning,
+    .mode-toggle,
+    .topbar-actions,
+    .cart-actions,
+    .checkout-actions,
+    .admin-quick-actions,
+    .admin-table-pagination,
+    .row-actions,
+    .scan-btn,
+    .alert-close,
+    .modal-close,
+    .cart-clear,
+    .category-filter,
+    .product-input-area,
+    .cash-input-group,
+    .cash-shortcuts,
+    .low-stock-alert {
+        display: none !important;
+    }
+
+    /* ---- 2.2 HIDE OVERLAYS ---- */
+    .modal-overlay,
+    .toast-container,
+    .loading-overlay,
+    .skeleton {
+        display: none !important;
+    }
+
+    /* ---- 2.3 HIDE SCROLLBAR ---- */
+    ::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    /* ---- 2.4 SHOW PRINT-ONLY ELEMENTS ---- */
+    .print-only {
+        display: block !important;
+    }
+
+    .print-inline {
+        display: inline !important;
+    }
+}
+
+/* ================================================================
+   PART 3: PRINT STRUCTURE
+   ================================================================ */
+
+@media print {
+    /* ---- 3.1 APP CONTAINER ---- */
+    #app {
+        display: block !important;
+        min-height: auto !important;
+        background: #fff !important;
+    }
+
+    /* ---- 3.2 MAIN CONTENT ---- */
+    .app-main {
+        display: block !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        background: #fff !important;
+    }
+
+    /* ---- 3.3 ROUTE CONTAINER ---- */
+    .route-container {
+        display: block !important;
+        overflow: visible !important;
+        height: auto !important;
+        padding: 0 !important;
+    }
+
+    /* ---- 3.4 ROUTE VIEW ---- */
+    .route-view {
+        position: static !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        transform: none !important;
+        opacity: 1 !important;
+        background: #fff !important;
+    }
+
+    .route-view.exit,
+    .route-view.enter {
+        display: none !important;
+    }
+
+    .route-view.active {
+        display: block !important;
+    }
+
+    /* ---- 3.5 PAGE BREAK CONTROL ---- */
+    .page-break {
+        page-break-before: always;
+        break-before: page;
+    }
+
+    .page-break-avoid {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .page-break-after {
+        page-break-after: always;
+        break-after: page;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    p, h1, h2, h3 {
+        orphans: 3;
+        widows: 3;
+    }
+}
+
+/* ================================================================
+   PART 4: PRINT TYPOGRAPHY
+   ================================================================ */
+
+@media print {
+    h1 {
+        font-size: 20pt;
+        font-weight: 700;
+        margin-bottom: 12pt;
+        border-bottom: 2pt solid #000;
+        padding-bottom: 6pt;
+    }
+
+    h2 {
+        font-size: 16pt;
+        font-weight: 600;
+        margin-bottom: 10pt;
+        margin-top: 16pt;
+    }
+
+    h3 {
+        font-size: 14pt;
+        font-weight: 600;
+        margin-bottom: 8pt;
+        margin-top: 12pt;
+    }
+
+    h4 {
+        font-size: 12pt;
+        font-weight: 600;
+        margin-bottom: 6pt;
+    }
+
+    p {
+        font-size: 11pt;
+        margin-bottom: 8pt;
+        line-height: 1.5;
+    }
+
+    a, a:visited {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #666;
+    }
+
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after {
+        content: "";
+    }
+
+    ul, ol {
+        padding-left: 20pt;
+        margin-bottom: 8pt;
+    }
+
+    li {
+        font-size: 11pt;
+        margin-bottom: 4pt;
+    }
+
+    code, pre {
+        font-family: 'Courier New', monospace;
+        font-size: 10pt;
+        background: #f5f5f5 !important;
+        border: 1px solid #ccc;
+        padding: 4pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3pt solid #666;
+        padding-left: 12pt;
+        margin: 12pt 0;
+        font-style: italic;
+        color: #333;
+    }
+
+    hr {
+        border: none;
+        border-top: 1pt solid #000;
+        margin: 12pt 0;
+    }
+}
+
+/* ================================================================
+   PART 5: PRINT TABLES
+   ================================================================ */
+
+@media print {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 12pt;
+        page-break-inside: auto;
+    }
+
+    thead {
+        display: table-header-group;
+        background: #f0f0f0 !important;
+    }
+
+    tfoot {
+        display: table-footer-group;
+        background: #f0f0f0 !important;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    th {
+        padding: 6pt 8pt;
+        border: 1pt solid #000;
+        background: #e8e8e8 !important;
+        color: #000 !important;
+        font-weight: 700;
+        font-size: 10pt;
+        text-align: left;
+    }
+
+    td {
+        padding: 6pt 8pt;
+        border: 1pt solid #000;
+        font-size: 10pt;
+        color: #000 !important;
+    }
+
+    tbody tr:nth-child(even) {
+        background: #f9f9f9 !important;
+    }
+
+    /* ---- 5.1 TABLE WRAPPER ---- */
+    .table-wrapper,
+    .admin-table-wrapper {
+        border: 1pt solid #000 !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        box-shadow: none !important;
+        page-break-inside: auto;
+    }
+
+    .table-wrapper table,
+    .admin-table-wrapper table {
+        min-width: unset !important;
+    }
+
+    /* ---- 5.2 STOCK STATUS ---- */
+    .stock-status {
+        border: 1pt solid #000 !important;
+        background: #fff !important;
+        color: #000 !important;
+        padding: 2pt 6pt;
+        border-radius: 4pt;
+        font-size: 9pt;
+        animation: none !important;
+    }
+}
+
+/* ================================================================
+   PART 6: PRINT CARDS
+   ================================================================ */
+
+@media print {
+    .card,
+    .admin-card {
+        border: 1pt solid #000 !important;
+        border-radius: 0 !important;
+        padding: 12pt !important;
+        margin-bottom: 12pt;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        background: #fff !important;
+    }
+
+    .admin-card .card-value {
+        font-size: 16pt;
+        font-weight: 700;
+        color: #000 !important;
+    }
+
+    .admin-card .card-label {
+        font-size: 9pt;
+        color: #666 !important;
+        text-transform: uppercase;
+    }
+
+    .admin-card .card-change {
+        color: #000 !important;
+        background: transparent !important;
+        border: 1pt solid #666;
+        padding: 1pt 4pt;
+    }
+
+    .card:hover,
+    .admin-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ================================================================
+   PART 7: PRINT RECEIPT (STRUK)
+   ================================================================ */
+
+@media print {
+    .receipt {
+        width: 80mm;
+        max-width: 80mm;
+        margin: 0 auto;
+        padding: 5mm;
+        font-family: 'Courier New', monospace;
+        font-size: 10pt;
+        color: #000;
+        background: #fff;
+        page-break-inside: avoid;
+    }
+
+    .receipt-header {
+        text-align: center;
+        margin-bottom: 8pt;
+        border-bottom: 1pt dashed #000;
+        padding-bottom: 6pt;
+    }
+
+    .receipt-header h1 {
+        font-size: 14pt;
+        margin-bottom: 2pt;
+        border: none;
+        padding: 0;
+    }
+
+    .receipt-header p {
+        font-size: 9pt;
+        margin: 0;
+        color: #000;
+    }
+
+    .receipt-body {
+        margin-bottom: 8pt;
+        border-bottom: 1pt dashed #000;
+        padding-bottom: 6pt;
+    }
+
+    .receipt-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 9pt;
+        margin-bottom: 3pt;
+        gap: 8pt;
+    }
+
+    .receipt-item .name {
+        flex: 1;
+        word-break: break-word;
+    }
+
+    .receipt-item .qty {
+        min-width: 30pt;
+        text-align: center;
+    }
+
+    .receipt-item .price {
+        min-width: 60pt;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .receipt-total {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 11pt;
+        margin-top: 6pt;
+        padding-top: 6pt;
+        border-top: 1pt solid #000;
+    }
+
+    .receipt-footer {
+        text-align: center;
+        font-size: 9pt;
+        margin-top: 12pt;
+        border-top: 1pt dashed #000;
+        padding-top: 6pt;
+    }
+
+    .receipt-footer p {
+        margin: 2pt 0;
+    }
+}
+
+/* ================================================================
+   PART 8: PRINT REPORT
+   ================================================================ */
+
+@media print {
+    .report {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        font-size: 11pt;
+    }
+
+    .report-header {
+        text-align: center;
+        margin-bottom: 20pt;
+        padding-bottom: 12pt;
+        border-bottom: 2pt solid #000;
+    }
+
+    .report-header h1 {
+        font-size: 18pt;
+        margin-bottom: 4pt;
+        border: none;
+        padding: 0;
+    }
+
+    .report-header p {
+        font-size: 11pt;
+        margin: 2pt 0;
+    }
+
+    .report-section {
+        margin-bottom: 16pt;
+        page-break-inside: avoid;
+    }
+
+    .report-section h2 {
+        font-size: 14pt;
+        border-bottom: 1pt solid #000;
+        padding-bottom: 4pt;
+        margin-bottom: 10pt;
+    }
+
+    .report-summary {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10pt;
+        margin-bottom: 16pt;
+    }
+
+    .report-summary-item {
+        border: 1pt solid #000;
+        padding: 8pt;
+        border-radius: 0;
+    }
+
+    .report-summary-item .label {
+        font-size: 9pt;
+        text-transform: uppercase;
+        color: #666;
+        margin-bottom: 2pt;
+    }
+
+    .report-summary-item .value {
+        font-size: 14pt;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .report-footer {
+        margin-top: 20pt;
+        padding-top: 10pt;
+        border-top: 1pt solid #000;
+        text-align: center;
+        font-size: 9pt;
+        color: #666;
+    }
+}
+
+/* ================================================================
+   PART 9: PRINT COLORS
+   ================================================================ */
+
+@media print {
+    .text-primary,
+    .text-success,
+    .text-warning,
+    .text-error,
+    .text-info {
+        color: #000 !important;
+    }
+
+    .bg-primary,
+    .bg-success,
+    .bg-warning,
+    .bg-error,
+    .bg-info {
+        background: #fff !important;
+        border: 1pt solid #000 !important;
+    }
+
+    .badge {
+        background: #fff !important;
+        color: #000 !important;
+        border: 1pt solid #000 !important;
+        padding: 2pt 6pt;
+        border-radius: 4pt;
+        font-size: 9pt;
+    }
+
+    .alert {
+        border: 1pt solid #000 !important;
+        background: #fff !important;
+        color: #000 !important;
+        padding: 8pt;
+    }
+}
+
+/* ================================================================
+   PART 10: PRINT PAGE BREAK UTILITIES
+   ================================================================ */
+
+@media print {
+    .print-break-before {
+        page-break-before: always;
+        break-before: page;
+    }
+
+    .print-break-after {
+        page-break-after: always;
+        break-after: page;
+    }
+
+    .print-no-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .print-avoid-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}
+
+/* ================================================================
+   PART 11: PRINT SCREEN-ONLY HIDE
+   ================================================================ */
+
+.print-only {
+    display: none;
+}
+
+.print-inline {
+    display: none;
+}
+
+@media print {
+    .print-only {
+        display: block !important;
+    }
+
+    .print-inline {
+        display: inline !important;
+    }
+}
+
+/* ================================================================
+   PART 12: PRINT RECEIPT PAPER SIZE (Thermal 58mm)
+   ================================================================ */
+
+@media print and (max-width: 58mm) {
+    @page {
+        size: 58mm auto;
+        margin: 2mm;
+    }
+
+    .receipt {
+        width: 54mm;
+        max-width: 54mm;
+        padding: 2mm;
+        font-size: 9pt;
+    }
+
+    .receipt-header h1 {
+        font-size: 12pt;
+    }
+
+    .receipt-item {
+        font-size: 8pt;
+    }
+
+    .receipt-total {
+        font-size: 10pt;
+    }
+}
+
+/* ================================================================
+   PART 13: PRINT RECEIPT PAPER SIZE (Thermal 80mm)
+   ================================================================ */
+
+@media print and (min-width: 58mm) and (max-width: 80mm) {
+    @page {
+        size: 80mm auto;
+        margin: 3mm;
+    }
+
+    .receipt {
+        width: 74mm;
+        max-width: 74mm;
+        padding: 3mm;
+        font-size: 10pt;
+    }
+}
+
+/* ================================================================
+   PART 14: REDUCED MOTION FOR PRINT
+   ================================================================ */
+
+@media print and (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ================================================================
+   END OF PRINT — 400+ BARIS
+   ================================================================ */

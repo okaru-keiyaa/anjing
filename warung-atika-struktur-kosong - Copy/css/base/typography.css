@@ -1,0 +1,583 @@
+ /* ================================================================
+   TYPOGRAPHY — Warung Atika Enterprise
+   ================================================================
+   Total: 500+ baris
+   Mencakup: heading, body, text utilities, link, list, code,
+   blockquote, label, badge, responsive, print, reduced motion
+   ================================================================ */
+
+/* ================================================================
+   PART 1: BODY
+   ================================================================ */
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    background: var(--color-bg);
+    letter-spacing: var(--letter-spacing-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    transition: color var(--transition-base), background var(--transition-base);
+}
+
+/* ================================================================
+   PART 2: HEADINGS
+   ================================================================ */
+
+h1, .h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+}
+
+h2, .h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.25;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+}
+
+h3, .h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+}
+
+h4, .h4 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.35;
+    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+}
+
+h5, .h5 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-text-secondary);
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+}
+
+h6, .h6 {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+}
+
+/* ================================================================
+   PART 3: PARAGRAPHS
+   ================================================================ */
+
+p {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* ================================================================
+   PART 4: TEXT SIZES
+   ================================================================ */
+
+.text-xs {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+}
+
+.text-sm {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+}
+
+.text-base {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+}
+
+.text-lg {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-normal);
+}
+
+.text-xl {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-normal);
+}
+
+.text-2xl {
+    font-size: var(--font-size-2xl);
+    line-height: 1.25;
+}
+
+.text-3xl {
+    font-size: var(--font-size-3xl);
+    line-height: 1.2;
+}
+
+.text-4xl {
+    font-size: var(--font-size-4xl);
+    line-height: 1.15;
+}
+
+/* ================================================================
+   PART 5: TEXT WEIGHTS
+   ================================================================ */
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-regular {
+    font-weight: var(--font-weight-regular);
+}
+
+.font-medium {
+    font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+    font-weight: var(--font-weight-bold);
+}
+
+/* ================================================================
+   PART 6: TEXT COLORS
+   ================================================================ */
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.text-success {
+    color: var(--color-success);
+}
+
+.text-warning {
+    color: var(--color-warning);
+}
+
+.text-error {
+    color: var(--color-error);
+}
+
+.text-info {
+    color: var(--color-info);
+}
+
+.text-inverse {
+    color: var(--color-text-inverse);
+}
+
+/* ================================================================
+   PART 7: TEXT ALIGNMENT
+   ================================================================ */
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* ================================================================
+   PART 8: TEXT TRUNCATE
+   ================================================================ */
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ================================================================
+   PART 9: LINKS
+   ================================================================ */
+
+a, .link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: var(--border-width-thin);
+    transition: color var(--transition-fast);
+    cursor: pointer;
+}
+
+a:hover, .link:hover {
+    color: var(--color-primary-hover);
+}
+
+a:focus-visible, .link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+a.link-plain {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.link-plain:hover {
+    color: var(--color-primary);
+}
+
+/* ================================================================
+   PART 10: LISTS
+   ================================================================ */
+
+ul, ol {
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ul ul, ol ol, ul ol, ol ul {
+    margin-bottom: 0;
+    padding-left: var(--space-md);
+}
+
+li {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-unstyled li {
+    margin-bottom: 0;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.list-inline li {
+    margin-bottom: 0;
+}
+
+/* ================================================================
+   PART 11: CODE & MONOSPACE
+   ================================================================ */
+
+code, kbd, samp, pre {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+}
+
+code {
+    padding: 0.1em 0.3em;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 0.9em;
+}
+
+pre {
+    display: block;
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    color: var(--color-text);
+}
+
+pre code {
+    padding: 0;
+    background: none;
+    font-size: var(--font-size-sm);
+}
+
+kbd {
+    display: inline-block;
+    padding: 0.1em 0.6em;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.85em;
+    font-weight: var(--font-weight-semibold);
+    box-shadow: 0 1px 2px var(--shadow-color);
+}
+
+/* ================================================================
+   PART 12: BLOCKQUOTE
+   ================================================================ */
+
+blockquote {
+    padding: var(--space-md) var(--space-lg);
+    margin-bottom: var(--space-md);
+    border-left: 4px solid var(--color-primary);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: var(--space-xs);
+    font-size: var(--font-size-sm);
+    font-style: normal;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+}
+
+/* ================================================================
+   PART 13: SMALL & META
+   ================================================================ */
+
+small, .small {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.meta {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+}
+
+/* ================================================================
+   PART 14: LABELS & BADGES
+   ================================================================ */
+
+.label {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-text-secondary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-secondary);
+}
+
+.badge {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    padding: 0.1em 0.6em;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    line-height: 1.6;
+}
+
+.badge-success {
+    background: var(--color-success);
+    color: var(--color-text-inverse);
+}
+
+.badge-warning {
+    background: var(--color-warning);
+    color: var(--color-text-inverse);
+}
+
+.badge-error {
+    background: var(--color-error);
+    color: var(--color-text-inverse);
+}
+
+.badge-neutral {
+    background: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+}
+
+/* ================================================================
+   PART 15: RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 1024px) {
+    h1, .h1 {
+        font-size: var(--font-size-3xl);
+    }
+    h2, .h2 {
+        font-size: var(--font-size-2xl);
+    }
+    h3, .h3 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (max-width: 768px) {
+    h1, .h1 {
+        font-size: var(--font-size-2xl);
+    }
+    h2, .h2 {
+        font-size: var(--font-size-xl);
+    }
+    h3, .h3 {
+        font-size: var(--font-size-lg);
+    }
+    h4, .h4 {
+        font-size: var(--font-size-base);
+    }
+    .text-4xl {
+        font-size: var(--font-size-3xl);
+    }
+    .text-3xl {
+        font-size: var(--font-size-2xl);
+    }
+    .text-2xl {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    h1, .h1 {
+        font-size: var(--font-size-xl);
+    }
+    h2, .h2 {
+        font-size: var(--font-size-lg);
+    }
+    body {
+        font-size: var(--font-size-sm);
+    }
+    .text-lg {
+        font-size: var(--font-size-base);
+    }
+    .text-xl {
+        font-size: var(--font-size-lg);
+    }
+    .text-2xl {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* ================================================================
+   PART 16: PRINT
+   ================================================================ */
+
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+    h1, .h1 {
+        font-size: 24pt;
+    }
+    h2, .h2 {
+        font-size: 18pt;
+    }
+    h3, .h3 {
+        font-size: 14pt;
+    }
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    code, pre {
+        background: #f5f5f5;
+        border-color: #ccc;
+    }
+}
+
+/* ================================================================
+   PART 17: REDUCED MOTION
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        transition: none;
+    }
+}
+
+/* ================================================================
+   END OF TYPOGRAPHY — 500+ BARIS
+   ================================================================ */

@@ -1,0 +1,564 @@
+ /* ================================================================
+   QR READER — Warung Atika Enterprise
+   ================================================================
+   Total: 300+ baris
+   Styling untuk upload/scan QR code
+   ================================================================ */
+
+/* ================================================================
+   PART 1: QR READER CONTAINER
+   ================================================================ */
+
+.qr-reader-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.qr-reader-container .qr-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+    text-align: center;
+}
+
+.qr-reader-container .qr-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-bottom: var(--space-md);
+}
+
+/* ================================================================
+   PART 2: QR DROPZONE
+   ================================================================ */
+
+.qr-dropzone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: var(--space-xl);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    gap: var(--space-md);
+    text-align: center;
+}
+
+.qr-dropzone:hover,
+.qr-dropzone.dragover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-bg);
+    transform: scale(1.01);
+}
+
+.qr-dropzone .dropzone-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--color-text-muted);
+    opacity: 0.5;
+    transition: opacity var(--transition-fast);
+}
+
+.qr-dropzone:hover .dropzone-icon {
+    opacity: 0.8;
+}
+
+.qr-dropzone .dropzone-text {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.qr-dropzone .dropzone-hint {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.qr-dropzone .dropzone-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+/* ================================================================
+   PART 3: QR PREVIEW
+   ================================================================ */
+
+.qr-preview {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.qr-preview.active {
+    display: flex;
+}
+
+.qr-preview img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+    background: #fff;
+    padding: var(--space-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.qr-preview .preview-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    width: 100%;
+}
+
+.qr-preview .preview-info .preview-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+.qr-preview .preview-info .preview-filename {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    word-break: break-all;
+    text-align: center;
+}
+
+.qr-preview .preview-actions {
+    display: flex;
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+.qr-preview .preview-actions .btn {
+    flex: 1;
+}
+
+/* ================================================================
+   PART 4: QR SCAN (Camera)
+   ================================================================ */
+
+.qr-scan-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    display: none;
+}
+
+.qr-scan-container.active {
+    display: block;
+}
+
+.qr-scan-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.qr-scan-container .scan-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.qr-scan-container .scan-frame {
+    width: 60%;
+    aspect-ratio: 1/1;
+    border: 3px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.4);
+    animation: scanFramePulse 2s ease-in-out infinite;
+}
+
+@keyframes scanFramePulse {
+    0%, 100% {
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        border-color: var(--color-primary-hover);
+        box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.qr-scan-container .scan-corners {
+    position: absolute;
+    inset: 20%;
+    pointer-events: none;
+}
+
+.qr-scan-container .scan-corners::before,
+.qr-scan-container .scan-corners::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-width: 0;
+}
+
+/* Corner styles */
+.qr-scan-container .scan-corners::before {
+    top: -2px;
+    left: -2px;
+    border-top-width: 3px;
+    border-left-width: 3px;
+    border-top-left-radius: 4px;
+}
+
+.qr-scan-container .scan-corners::after {
+    bottom: -2px;
+    right: -2px;
+    border-bottom-width: 3px;
+    border-right-width: 3px;
+    border-bottom-right-radius: 4px;
+}
+
+/* ================================================================
+   PART 5: QR CAMERA CONTROLS
+   ================================================================ */
+
+.qr-camera-controls {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-top: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.qr-camera-controls .btn {
+    min-width: 120px;
+}
+
+/* ================================================================
+   PART 6: QR RESULT
+   ================================================================ */
+
+.qr-result {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-success-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-success);
+    margin-top: var(--space-md);
+}
+
+.qr-result.active {
+    display: flex;
+}
+
+.qr-result .result-icon {
+    font-size: var(--font-size-2xl);
+    text-align: center;
+    color: var(--color-success);
+}
+
+.qr-result .result-title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-success-text);
+    text-align: center;
+}
+
+.qr-result .result-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-xs) var(--space-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    padding: var(--space-sm);
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+}
+
+.qr-result .result-details .label {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+}
+
+.qr-result .result-details .value {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    word-break: break-all;
+}
+
+.qr-result .result-actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+.qr-result .result-actions .btn {
+    flex: 1;
+}
+
+/* ================================================================
+   PART 7: QR ERROR
+   ================================================================ */
+
+.qr-error {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-error-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-error);
+    margin-top: var(--space-md);
+}
+
+.qr-error.active {
+    display: flex;
+}
+
+.qr-error .error-icon {
+    font-size: var(--font-size-2xl);
+    color: var(--color-error);
+}
+
+.qr-error .error-title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-error-text);
+}
+
+.qr-error .error-message {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+
+.qr-error .error-actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
+}
+
+/* ================================================================
+   PART 8: QR LOADING
+   ================================================================ */
+
+.qr-loading {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-xl);
+    text-align: center;
+}
+
+.qr-loading.active {
+    display: flex;
+}
+
+.qr-loading .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.qr-loading .loading-text {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ================================================================
+   PART 9: QR TOGGLE
+   ================================================================ */
+
+.qr-toggle {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-bottom: var(--space-md);
+}
+
+.qr-toggle .btn {
+    flex: 1;
+    max-width: 200px;
+}
+
+.qr-toggle .btn.active {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    border-color: var(--color-primary);
+}
+
+/* ================================================================
+   PART 10: RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 768px) {
+    .qr-reader-container {
+        padding: var(--space-sm);
+        max-width: 100%;
+    }
+
+    .qr-dropzone {
+        min-height: 150px;
+        padding: var(--space-lg);
+    }
+
+    .qr-dropzone .dropzone-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .qr-preview img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .qr-scan-container {
+        max-width: 100%;
+    }
+
+    .qr-scan-container .scan-frame {
+        width: 70%;
+    }
+
+    .qr-camera-controls .btn {
+        min-width: 80px;
+        font-size: var(--font-size-xs);
+        padding: var(--space-xs) var(--space-md);
+    }
+
+    .qr-result .result-details {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+    }
+
+    .qr-result .result-details .label {
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-text-secondary);
+    }
+
+    .qr-result .result-actions {
+        flex-direction: column;
+    }
+
+    .qr-toggle .btn {
+        max-width: 100%;
+        font-size: var(--font-size-xs);
+        padding: var(--space-xs) var(--space-md);
+    }
+
+    .qr-error .error-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .qr-reader-container {
+        padding: var(--space-xs);
+    }
+
+    .qr-dropzone {
+        min-height: 120px;
+        padding: var(--space-md);
+    }
+
+    .qr-dropzone .dropzone-text {
+        font-size: var(--font-size-sm);
+    }
+
+    .qr-dropzone .dropzone-hint {
+        font-size: var(--font-size-xs);
+    }
+
+    .qr-preview img {
+        max-width: 120px;
+        max-height: 120px;
+    }
+
+    .qr-scan-container .scan-frame {
+        width: 80%;
+    }
+
+    .qr-scan-container .scan-corners::before,
+    .qr-scan-container .scan-corners::after {
+        width: 14px;
+        height: 14px;
+    }
+
+    .qr-result .result-title {
+        font-size: var(--font-size-sm);
+    }
+
+    .qr-loading .loading-spinner {
+        width: 32px;
+        height: 32px;
+    }
+
+    .qr-loading .loading-text {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* ================================================================
+   PART 11: REDUCED MOTION
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .qr-dropzone:hover,
+    .qr-dropzone.dragover {
+        transform: none !important;
+    }
+
+    .qr-scan-container .scan-frame {
+        animation: none !important;
+    }
+
+    .qr-loading .loading-spinner {
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* ================================================================
+   END OF QR READER — 300+ BARIS
+   ================================================================ */

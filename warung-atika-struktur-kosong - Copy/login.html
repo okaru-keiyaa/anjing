@@ -1,0 +1,565 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — Warung Atika</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base/reset.css" />
+    <link rel="stylesheet" href="css/base/design-system.css" />
+    <link rel="stylesheet" href="css/base/typography.css" />
+    <link rel="stylesheet" href="css/layouts/login.css" />
+    <link rel="stylesheet" href="css/components/components.css" />
+    <link rel="stylesheet" href="css/utilities/utilities.css" />
+    <link rel="stylesheet" href="css/themes/themes.css" />
+
+    <style>
+        /* Login page override — biar tidak kena layout shell */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-bg);
+            padding: 20px;
+            margin: 0;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 400px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .login-logo svg {
+            width: 56px;
+            height: 56px;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+        .login-logo h1 {
+            font-size: var(--fs-2xl);
+            font-weight: var(--fw-bold);
+            color: var(--color-text);
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+        .login-logo p {
+            color: var(--color-text-muted);
+            font-size: var(--fs-sm);
+            margin-top: 4px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: var(--fw-medium);
+            color: var(--color-text-secondary);
+            font-size: var(--fs-sm);
+            margin-bottom: 6px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: var(--fs-base);
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background: var(--color-bg);
+            color: var(--color-text);
+            text-align: center;
+            letter-spacing: 6px;
+            font-weight: var(--fw-bold);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-group input:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.12);
+            outline: none;
+        }
+        .form-group input:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            font-size: var(--fs-base);
+            font-weight: var(--fw-semibold);
+            background: var(--color-primary);
+            color: var(--color-primary-text);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            margin-top: 4px;
+        }
+        .login-btn:hover {
+            background: var(--color-primary-hover);
+        }
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+        .login-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status-message {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: var(--radius-md);
+            font-size: var(--fs-sm);
+            font-weight: var(--fw-medium);
+            display: none;
+        }
+        .status-message.error {
+            display: block;
+            background: var(--color-error-bg);
+            color: var(--color-error-text);
+            border: 1px solid var(--color-error);
+        }
+        .status-message.success {
+            display: block;
+            background: var(--color-success-bg);
+            color: var(--color-success-text);
+            border: 1px solid var(--color-success);
+        }
+        .status-message.info {
+            display: block;
+            background: var(--color-primary-bg);
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+        }
+
+        .lock-message {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: var(--radius-md);
+            background: var(--color-error-bg);
+            color: var(--color-error-text);
+            border: 1px solid var(--color-error);
+            font-size: var(--fs-sm);
+            font-weight: var(--fw-medium);
+            display: none;
+            text-align: center;
+        }
+        .lock-message .timer {
+            font-weight: var(--fw-bold);
+            font-size: var(--fs-lg);
+        }
+
+        .attempts-info {
+            text-align: center;
+            font-size: var(--fs-sm);
+            color: var(--color-text-muted);
+            margin-top: 12px;
+        }
+        .attempts-info .remaining {
+            font-weight: var(--fw-bold);
+            color: var(--color-text);
+        }
+        .attempts-info .danger {
+            color: var(--color-error);
+        }
+
+        .setup-section {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border);
+        }
+        .setup-section summary {
+            cursor: pointer;
+            font-size: var(--fs-sm);
+            color: var(--color-text-muted);
+            padding: 4px 0;
+        }
+        .setup-section summary:hover {
+            color: var(--color-text);
+        }
+        .setup-form {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .setup-form .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .setup-form .form-row label {
+            font-size: var(--fs-sm);
+            font-weight: var(--fw-medium);
+            color: var(--color-text-secondary);
+        }
+        .setup-form .form-row input {
+            padding: 12px 16px;
+            font-size: var(--fs-base);
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background: var(--color-bg);
+            color: var(--color-text);
+            text-align: center;
+            letter-spacing: 4px;
+            font-weight: var(--fw-bold);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .setup-form .form-row input:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.12);
+            outline: none;
+        }
+        .setup-btn {
+            padding: 12px;
+            font-size: var(--fs-base);
+            font-weight: var(--fw-semibold);
+            background: var(--color-primary);
+            color: var(--color-primary-text);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+        .setup-btn:hover {
+            background: var(--color-primary-hover);
+        }
+        .setup-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <!-- Logo -->
+        <div class="login-logo">
+            <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <rect x="4" y="20" width="56" height="40" rx="4" fill="currentColor" opacity="0.15" />
+                <rect x="12" y="12" width="40" height="12" rx="2" fill="currentColor" opacity="0.3" />
+                <rect x="16" y="16" width="32" height="8" rx="1" fill="currentColor" opacity="0.5" />
+                <path d="M20 30 L44 30 L44 36 L20 36 L20 30Z" fill="currentColor" opacity="0.3" />
+                <circle cx="28" cy="44" r="6" fill="currentColor" opacity="0.2" />
+                <circle cx="36" cy="44" r="6" fill="currentColor" opacity="0.2" />
+                <circle cx="28" cy="44" r="3" fill="currentColor" opacity="0.5" />
+                <circle cx="36" cy="44" r="3" fill="currentColor" opacity="0.5" />
+                <text x="32" y="56" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" opacity="0.8">POS</text>
+            </svg>
+            <h1>Warung Atika</h1>
+            <p>Enterprise Point of Sale</p>
+        </div>
+
+        <!-- PIN Input -->
+        <div class="form-group">
+            <label for="pinInput">Masukkan PIN</label>
+            <input type="password" id="pinInput" maxlength="6" inputmode="numeric" placeholder="• • • •" autofocus />
+        </div>
+
+        <!-- Status Message -->
+        <div class="status-message" id="statusMessage"></div>
+
+        <!-- Lock Message -->
+        <div class="lock-message" id="lockMessage">
+            🔒 Terkunci — coba lagi dalam <span class="timer" id="lockTimer">30</span> detik
+        </div>
+
+        <!-- Attempts Info -->
+        <div class="attempts-info" id="attemptsInfo">
+            Sisa percobaan: <span class="remaining" id="remainingAttempts">3</span>
+        </div>
+
+        <!-- Login Button -->
+        <button class="login-btn" id="loginBtn" disabled>Masuk</button>
+
+        <!-- Setup PIN Section -->
+        <details class="setup-section">
+            <summary>🔑 Setup PIN (Admin)</summary>
+            <form id="setupForm" class="setup-form" autocomplete="off">
+                <div class="form-row">
+                    <label for="newPin">PIN Baru (4-6 digit)</label>
+                    <input type="password" id="newPin" maxlength="6" inputmode="numeric" placeholder="••••" />
+                </div>
+                <div class="form-row">
+                    <label for="confirmPin">Konfirmasi PIN</label>
+                    <input type="password" id="confirmPin" maxlength="6" inputmode="numeric" placeholder="••••" />
+                </div>
+                <button type="button" class="setup-btn" id="setupBtn" disabled>Setel PIN</button>
+                <div class="status-message" id="setupStatus"></div>
+            </form>
+        </details>
+    </div>
+
+    <!-- ================================================================
+    JAVASCRIPT — LOGIC LOGIN
+    ================================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ============================================================
+            // DOM REFS
+            // ============================================================
+            const pinInput = document.getElementById('pinInput');
+            const loginBtn = document.getElementById('loginBtn');
+            const statusMsg = document.getElementById('statusMessage');
+            const lockMsg = document.getElementById('lockMessage');
+            const lockTimer = document.getElementById('lockTimer');
+            const remainingEl = document.getElementById('remainingAttempts');
+
+            const newPin = document.getElementById('newPin');
+            const confirmPin = document.getElementById('confirmPin');
+            const setupBtn = document.getElementById('setupBtn');
+            const setupStatus = document.getElementById('setupStatus');
+
+            // ============================================================
+            // CONSTANTS
+            // ============================================================
+            const MAX_ATTEMPTS = 3;
+            const LOCK_DURATION = 30000;
+            const SALT = 'warung_atika_salt_2024';
+            const PIN_KEY = 'atika_pin_hash';
+            const PIN_SET_KEY = 'atika_pin_set';
+            const ATTEMPTS_KEY = 'atika_attempts';
+            const LOCK_KEY = 'atika_lock_until';
+            const SESSION_KEY = 'atika_session';
+
+            let attempts = 0;
+            let lockUntil = null;
+            let lockTimerId = null;
+
+            // ============================================================
+            // CRYPTO — SHA-256
+            // ============================================================
+            async function hashPIN(pin) {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(pin + SALT);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            }
+
+            // ============================================================
+            // STORAGE
+            // ============================================================
+            function loadState() {
+                attempts = parseInt(localStorage.getItem(ATTEMPTS_KEY)) || 0;
+                lockUntil = parseInt(localStorage.getItem(LOCK_KEY)) || null;
+                if (lockUntil && Date.now() > lockUntil) resetAttempts();
+            }
+
+            function saveAttempts() { localStorage.setItem(ATTEMPTS_KEY, String(attempts)); }
+            function saveLock() { localStorage.setItem(LOCK_KEY, String(lockUntil)); }
+            function resetAttempts() { attempts = 0; lockUntil = null; localStorage.removeItem(ATTEMPTS_KEY); localStorage.removeItem(LOCK_KEY); updateUI(); }
+
+            function isLocked() { return lockUntil && Date.now() < lockUntil; }
+            function getLockRemaining() { return lockUntil ? Math.max(0, lockUntil - Date.now()) : 0; }
+
+            // ============================================================
+            // UI
+            // ============================================================
+            function updateUI() {
+                const remaining = Math.max(0, MAX_ATTEMPTS - attempts);
+                remainingEl.textContent = remaining;
+                remainingEl.classList.toggle('danger', remaining <= 1);
+                loginBtn.disabled = pinInput.value.length < 4 || isLocked();
+                if (isLocked()) {
+                    lockMsg.style.display = 'block';
+                    pinInput.disabled = true;
+                    loginBtn.disabled = true;
+                    startLockTimer();
+                } else {
+                    lockMsg.style.display = 'none';
+                    pinInput.disabled = false;
+                }
+            }
+
+            function showStatus(msg, type) {
+                statusMsg.textContent = msg;
+                statusMsg.className = 'status-message ' + type;
+                statusMsg.style.display = 'block';
+            }
+
+            function hideStatus() {
+                statusMsg.style.display = 'none';
+                statusMsg.textContent = '';
+            }
+
+            function startLockTimer() {
+                if (lockTimerId) cancelAnimationFrame(lockTimerId);
+                function tick() {
+                    const remaining = getLockRemaining();
+                    if (remaining <= 0) {
+                        lockMsg.style.display = 'none';
+                        pinInput.disabled = false;
+                        resetAttempts();
+                        updateUI();
+                        showStatus('PIN sudah dibuka. Silakan coba lagi.', 'info');
+                        pinInput.focus();
+                        lockTimerId = null;
+                        return;
+                    }
+                    lockTimer.textContent = Math.ceil(remaining / 1000);
+                    lockTimerId = requestAnimationFrame(tick);
+                }
+                tick();
+            }
+
+            // ============================================================
+            // LOGIN
+            // ============================================================
+            async function attemptLogin() {
+                const pin = pinInput.value.trim();
+                if (pin.length < 4) { showStatus('PIN minimal 4 digit', 'error'); return; }
+                if (isLocked()) { updateUI(); return; }
+
+                try {
+                    loginBtn.disabled = true;
+                    hideStatus();
+                    showStatus('Memverifikasi...', 'info');
+
+                    const storedHash = localStorage.getItem(PIN_KEY);
+                    if (!storedHash) {
+                        showStatus('❌ PIN belum diset. Setup PIN dulu.', 'error');
+                        loginBtn.disabled = false;
+                        return;
+                    }
+
+                    const enteredHash = await hashPIN(pin);
+                    if (storedHash === enteredHash) {
+                        showStatus('✅ Login berhasil!', 'success');
+                        resetAttempts();
+                        const session = { id: crypto.randomUUID(), authenticated: true, loginTime: Date.now() };
+                        localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+                        setTimeout(() => window.location.href = 'index.html', 600);
+                    } else {
+                        attempts++;
+                        saveAttempts();
+                        const remaining = MAX_ATTEMPTS - attempts;
+                        if (remaining <= 0) {
+                            lockUntil = Date.now() + LOCK_DURATION;
+                            saveLock();
+                            updateUI();
+                            showStatus('🔒 Terlalu banyak percobaan salah. Terkunci 30 detik.', 'error');
+                        } else {
+                            showStatus(`❌ PIN salah. Sisa percobaan: ${remaining}`, 'error');
+                            updateUI();
+                            pinInput.value = '';
+                            pinInput.focus();
+                            loginBtn.disabled = false;
+                        }
+                    }
+                } catch (err) {
+                    showStatus(`❌ Error: ${err.message}`, 'error');
+                    loginBtn.disabled = false;
+                }
+            }
+
+            // ============================================================
+            // SETUP PIN
+            // ============================================================
+            function validateSetup() {
+                const pin = newPin.value.trim();
+                const confirm = confirmPin.value.trim();
+                const valid = pin.length >= 4 && pin.length <= 6 && /^\d+$/.test(pin) && pin === confirm;
+                setupBtn.disabled = !valid;
+                return valid;
+            }
+
+            async function setupPIN() {
+                const pin = newPin.value.trim();
+                const confirm = confirmPin.value.trim();
+                if (!validateSetup()) {
+                    setupStatus.textContent = '❌ PIN tidak valid atau tidak cocok';
+                    setupStatus.className = 'status-message error';
+                    setupStatus.style.display = 'block';
+                    return;
+                }
+                try {
+                    setupBtn.disabled = true;
+                    setupStatus.textContent = '⏳ Memproses...';
+                    setupStatus.className = 'status-message info';
+                    setupStatus.style.display = 'block';
+
+                    const hashed = await hashPIN(pin);
+                    localStorage.setItem(PIN_KEY, hashed);
+                    localStorage.setItem(PIN_SET_KEY, 'true');
+
+                    setupStatus.textContent = '✅ PIN berhasil diset!';
+                    setupStatus.className = 'status-message success';
+                    newPin.value = '';
+                    confirmPin.value = '';
+                    setupBtn.disabled = true;
+                    resetAttempts();
+                    pinInput.focus();
+                } catch (err) {
+                    setupStatus.textContent = `❌ Error: ${err.message}`;
+                    setupStatus.className = 'status-message error';
+                    setupStatus.style.display = 'block';
+                    setupBtn.disabled = false;
+                }
+            }
+
+            // ============================================================
+            // SESSION CHECK
+            // ============================================================
+            function checkSession() {
+                try {
+                    const raw = localStorage.getItem(SESSION_KEY);
+                    if (raw) {
+                        const session = JSON.parse(raw);
+                        if (session && session.authenticated) {
+                            window.location.href = 'index.html';
+                            return true;
+                        }
+                    }
+                } catch (_) {}
+                return false;
+            }
+
+            // ============================================================
+            // EVENTS
+            // ============================================================
+            pinInput.addEventListener('input', () => { hideStatus(); updateUI(); });
+            pinInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') attemptLogin(); });
+            loginBtn.addEventListener('click', attemptLogin);
+
+            newPin.addEventListener('input', validateSetup);
+            confirmPin.addEventListener('input', validateSetup);
+            setupBtn.addEventListener('click', setupPIN);
+
+            newPin.addEventListener('keydown', (e) => { if (e.key === 'Enter') confirmPin.focus(); });
+            confirmPin.addEventListener('keydown', (e) => { if (e.key === 'Enter') setupPIN(); });
+
+            // ============================================================
+            // INIT
+            // ============================================================
+            if (checkSession()) return;
+            loadState();
+            updateUI();
+            if (isLocked()) startLockTimer();
+            setTimeout(() => pinInput.focus(), 100);
+            console.log('[Login] Initialized');
+        })();
+    </script>
+</body>
+</html>

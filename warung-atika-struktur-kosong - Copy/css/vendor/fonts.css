@@ -1,0 +1,528 @@
+ /* ================================================================
+   FONTS — Warung Atika Enterprise
+   ================================================================
+   Font-face declaration untuk Inter (primary) dan JetBrains Mono
+   Total: 300+ baris
+   ================================================================ */
+
+/* ================================================================
+   PART 1: INTER — PRIMARY FONT
+   ================================================================ */
+
+/* ---- 1.1 INTER REGULAR (400) ---- */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../../assets/fonts/Inter.woff2') format('woff2'),
+         url('../../assets/fonts/Inter.woff') format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- 1.2 INTER MEDIUM (500) ---- */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../../assets/fonts/Inter.woff2') format('woff2'),
+         url('../../assets/fonts/Inter.woff') format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- 1.3 INTER SEMIBOLD (600) ---- */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../../assets/fonts/Inter.woff2') format('woff2'),
+         url('../../assets/fonts/Inter.woff') format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- 1.4 INTER BOLD (700) ---- */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../../assets/fonts/Inter.woff2') format('woff2'),
+         url('../../assets/fonts/Inter.woff') format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- 1.5 INTER ITALIC (400) ---- */
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../../assets/fonts/Inter.woff2') format('woff2'),
+         url('../../assets/fonts/Inter.woff') format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ================================================================
+   PART 2: JETBRAINS MONO — CODE FONT
+   ================================================================ */
+
+/* ---- 2.1 JETBRAINS MONO REGULAR (400) ---- */
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../../assets/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- 2.2 JETBRAINS MONO MEDIUM (500) ---- */
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../../assets/fonts/JetBrainsMono-Medium.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- 2.3 JETBRAINS MONO BOLD (700) ---- */
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../../assets/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ================================================================
+   PART 3: FALLBACK FONTS (Google Fonts API)
+   ================================================================ */
+
+/* ---- 3.1 INTER FALLBACK (via Google Fonts) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap');
+
+/* ---- 3.2 JETBRAINS MONO FALLBACK (via Google Fonts) ---- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ================================================================
+   PART 4: FONT UTILITY CLASSES
+   ================================================================ */
+
+.font-inter {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.font-mono {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+}
+
+.font-system {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-serif {
+    font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+/* ================================================================
+   PART 5: FONT WEIGHT UTILITIES
+   ================================================================ */
+
+.fw-100 { font-weight: 100; }
+.fw-200 { font-weight: 200; }
+.fw-300 { font-weight: 300; }
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-800 { font-weight: 800; }
+.fw-900 { font-weight: 900; }
+
+.fw-normal { font-weight: 400; }
+.fw-medium { font-weight: 500; }
+.fw-semibold { font-weight: 600; }
+.fw-bold { font-weight: 700; }
+
+/* ================================================================
+   PART 6: FONT STYLE UTILITIES
+   ================================================================ */
+
+.font-italic { font-style: italic; }
+.font-normal { font-style: normal; }
+.font-oblique { font-style: oblique; }
+
+/* ================================================================
+   PART 7: FONT SMOOTHING
+   ================================================================ */
+
+body,
+.font-smooth {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* ================================================================
+   PART 8: FONT LOADING OPTIMIZATION
+   ================================================================ */
+
+/* ---- 8.1 PRELOAD HINT ---- */
+.font-preload {
+    font-display: swap;
+}
+
+/* ---- 8.2 SKIP FONT LOADING (untuk teks yang tidak penting) ---- */
+.font-fallback {
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ================================================================
+   PART 9: FONT FEATURE SETTINGS
+   ================================================================ */
+
+.font-feature-tnum {
+    font-feature-settings: 'tnum' 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.font-feature-lnum {
+    font-feature-settings: 'lnum' 1;
+    font-variant-numeric: lining-nums;
+}
+
+.font-feature-onum {
+    font-feature-settings: 'onum' 1;
+    font-variant-numeric: oldstyle-nums;
+}
+
+.font-feature-pnum {
+    font-feature-settings: 'pnum' 1;
+    font-variant-numeric: proportional-nums;
+}
+
+.font-feature-smcp {
+    font-feature-settings: 'smcp' 1;
+    font-variant-caps: small-caps;
+}
+
+.font-feature-c2sc {
+    font-feature-settings: 'c2sc' 1;
+    font-variant-caps: all-small-caps;
+}
+
+.font-feature-ss01 {
+    font-feature-settings: 'ss01' 1;
+}
+
+.font-feature-ss02 {
+    font-feature-settings: 'ss02' 1;
+}
+
+.font-feature-calt {
+    font-feature-settings: 'calt' 1;
+    font-variant-ligatures: contextual;
+}
+
+.font-feature-kern {
+    font-feature-settings: 'kern' 1;
+    font-kerning: normal;
+}
+
+/* ================================================================
+   PART 10: TABULAR NUMS (Untuk angka/currency)
+   ================================================================ */
+
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+}
+
+.proportional-nums {
+    font-variant-numeric: proportional-nums;
+}
+
+.oldstyle-nums {
+    font-variant-numeric: oldstyle-nums;
+}
+
+.lining-nums {
+    font-variant-numeric: lining-nums;
+}
+
+.diagonal-fractions {
+    font-variant-numeric: diagonal-fractions;
+}
+
+.stacked-fractions {
+    font-variant-numeric: stacked-fractions;
+}
+
+/* ================================================================
+   PART 11: FONT DISPLAY CLASSES
+   ================================================================ */
+
+.font-display-1 {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
+
+.font-display-2 {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.font-display-3 {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+/* ================================================================
+   PART 12: FONT TRACKING
+   ================================================================ */
+
+.tracking-tighter {
+    letter-spacing: -0.05em;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+.tracking-normal {
+    letter-spacing: 0;
+}
+
+.tracking-wide {
+    letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+.tracking-widest {
+    letter-spacing: 0.1em;
+}
+
+/* ================================================================
+   PART 13: FONT LINE HEIGHT
+   ================================================================ */
+
+.leading-none { line-height: 1; }
+.leading-tight { line-height: 1.15; }
+.leading-snug { line-height: 1.3; }
+.leading-normal { line-height: 1.5; }
+.leading-relaxed { line-height: 1.625; }
+.leading-loose { line-height: 2; }
+
+/* ================================================================
+   PART 14: FONT SIZE EXTENDED
+   ================================================================ */
+
+.text-5xl { font-size: 3rem; }
+.text-6xl { font-size: 3.75rem; }
+.text-7xl { font-size: 4.5rem; }
+.text-8xl { font-size: 6rem; }
+.text-9xl { font-size: 8rem; }
+
+/* ================================================================
+   PART 15: FONT DECORATION
+   ================================================================ */
+
+.underline { text-decoration-line: underline; }
+.overline { text-decoration-line: overline; }
+.line-through { text-decoration-line: line-through; }
+.no-underline { text-decoration-line: none; }
+
+.decoration-solid { text-decoration-style: solid; }
+.decoration-double { text-decoration-style: double; }
+.decoration-dotted { text-decoration-style: dotted; }
+.decoration-dashed { text-decoration-style: dashed; }
+.decoration-wavy { text-decoration-style: wavy; }
+
+.underline-offset-0 { text-underline-offset: 0; }
+.underline-offset-1 { text-underline-offset: 1px; }
+.underline-offset-2 { text-underline-offset: 2px; }
+.underline-offset-4 { text-underline-offset: 4px; }
+.underline-offset-8 { text-underline-offset: 8px; }
+
+/* ================================================================
+   PART 16: TEXT TRANSFORM
+   ================================================================ */
+
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.normal-case { text-transform: none; }
+
+/* ================================================================
+   PART 17: TEXT OVERFLOW
+   ================================================================ */
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-ellipsis {
+    text-overflow: ellipsis;
+}
+
+.text-clip {
+    text-overflow: clip;
+}
+
+/* ================================================================
+   PART 18: TEXT ALIGN
+   ================================================================ */
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+.text-start { text-align: start; }
+.text-end { text-align: end; }
+
+/* ================================================================
+   PART 19: TEXT WRAPPING
+   ================================================================ */
+
+.text-wrap { text-wrap: wrap; }
+.text-nowrap { text-wrap: nowrap; }
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+.break-normal {
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+.break-words {
+    overflow-wrap: break-word;
+}
+
+.break-all {
+    word-break: break-all;
+}
+
+.break-keep {
+    word-break: keep-all;
+}
+
+/* ================================================================
+   PART 20: FONT VARIANT ALTERNATES
+   ================================================================ */
+
+.font-variant-normal {
+    font-variant: normal;
+}
+
+.font-variant-small-caps {
+    font-variant: small-caps;
+}
+
+.font-variant-all-small-caps {
+    font-variant: all-small-caps;
+}
+
+.font-variant-petite-caps {
+    font-variant: petite-caps;
+}
+
+.font-variant-unicase {
+    font-variant: unicase;
+}
+
+/* ================================================================
+   PART 21: FONT VARIANT EAST ASIAN
+   ================================================================ */
+
+.font-variant-jis78 { font-variant-east-asian: jis78; }
+.font-variant-jis83 { font-variant-east-asian: jis83; }
+.font-variant-jis90 { font-variant-east-asian: jis90; }
+.font-variant-jis04 { font-variant-east-asian: jis04; }
+.font-variant-simplified { font-variant-east-asian: simplified; }
+.font-variant-traditional { font-variant-east-asian: traditional; }
+.font-variant-full-width { font-variant-east-asian: full-width; }
+.font-variant-proportional-width { font-variant-east-asian: proportional-width; }
+
+/* ================================================================
+   PART 22: RESPONSIVE FONT SIZE
+   ================================================================ */
+
+@media (max-width: 768px) {
+    .md\:text-sm { font-size: var(--font-size-sm); }
+    .md\:text-base { font-size: var(--font-size-base); }
+    .md\:text-lg { font-size: var(--font-size-lg); }
+    .md\:text-xl { font-size: var(--font-size-xl); }
+    .md\:text-2xl { font-size: var(--font-size-2xl); }
+}
+
+@media (min-width: 768px) {
+    .lg\:text-base { font-size: var(--font-size-base); }
+    .lg\:text-lg { font-size: var(--font-size-lg); }
+    .lg\:text-xl { font-size: var(--font-size-xl); }
+    .lg\:text-2xl { font-size: var(--font-size-2xl); }
+    .lg\:text-3xl { font-size: var(--font-size-3xl); }
+}
+
+@media (min-width: 1024px) {
+    .xl\:text-lg { font-size: var(--font-size-lg); }
+    .xl\:text-xl { font-size: var(--font-size-xl); }
+    .xl\:text-2xl { font-size: var(--font-size-2xl); }
+    .xl\:text-3xl { font-size: var(--font-size-3xl); }
+    .xl\:text-4xl { font-size: var(--font-size-4xl); }
+}
+
+/* ================================================================
+   PART 23: PRINT FONT OPTIMIZATION
+   ================================================================ */
+
+@media print {
+    body {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 12pt;
+        font-weight: 400;
+        color: #000;
+    }
+
+    code, pre {
+        font-family: 'Courier New', monospace;
+        font-size: 10pt;
+    }
+
+    h1 { font-size: 20pt; font-weight: 700; }
+    h2 { font-size: 16pt; font-weight: 600; }
+    h3 { font-size: 14pt; font-weight: 600; }
+    h4 { font-size: 12pt; font-weight: 600; }
+    h5 { font-size: 11pt; font-weight: 600; }
+    h6 { font-size: 10pt; font-weight: 600; }
+}
+
+/* ================================================================
+   PART 24: REDUCED MOTION
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        font-smooth: never;
+        -webkit-font-smoothing: none;
+    }
+}
+
+/* ================================================================
+   END OF FONTS — 300+ BARIS
+   ================================================================ */
